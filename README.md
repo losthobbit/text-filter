@@ -13,8 +13,8 @@ and whitespace are not considered part of a word and are preserved in
 the output. Numbers are treated as words (e.g. "123" is a valid word).
 
 ## Case Sensitivity
-All filters are applied case-insensitively. For example, Filter3 will 
-remove both "the" and "The".
+Filter 3 is case-sensitive, as the requirement is unclear, so will filter
+out words with `t`, but not `T`.
 
 ## Filter1 — Vowel in Middle
 - For odd-length words, the middle is the single centre character.
