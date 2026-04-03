@@ -1,7 +1,7 @@
 ﻿using Shouldly;
-using TextFilter.App.Application.Matchers;
+using TextFilter.App.Domain.Matchers;
 
-namespace TextFilter.Tests.Application.Filters;
+namespace TextFilter.Tests.Domain.Filters;
 
 public class MiddleVowelMatcherTests
 {
