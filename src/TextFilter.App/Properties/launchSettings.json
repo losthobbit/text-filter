@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "TextFilter.App": {
+      "commandName": "Project",
+      "commandLineArgs": "c:\\temp\\alice.txt"
+    }
+  }
+}

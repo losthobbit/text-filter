@@ -1,3 +1,14 @@
+# Usage
+
+```
+dotnet run --project src/TextFilter.App -- <path-to-file>
+```
+
+Example:
+```
+dotnet run --project src/TextFilter.App -- c:\temp\alice.txt
+```
+
 # Assumptions
 
 ## Output Formatting

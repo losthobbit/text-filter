@@ -1,4 +1,4 @@
-namespace TextFilter.App.Domain.Matchers;
+namespace TextFilter.App.Application.Matchers;
 
 internal class ShortWordMatcher : IWordMatcher
 {
