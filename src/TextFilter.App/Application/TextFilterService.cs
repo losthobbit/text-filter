@@ -1,14 +1,14 @@
-﻿using System.Text.RegularExpressions;
 using TextFilter.App.Application.Interfaces;
 using TextFilter.App.Application.WordMatchers;
 
 namespace TextFilter.App.Application;
 
-internal partial class TextFilterService
+public class TextFilterService
 {
-    private readonly IOutputWriter _outputWriter;
     private readonly ITextReader _textReader;
-    private readonly IWordMatcher[] _wordMatchers = [
+    private readonly IOutputWriter _outputWriter;
+    private readonly WordFilter _wordFilter = new();
+    private readonly IWordMatcher[] _matchers = [
         new MiddleVowelMatcher(),
         new ShortWordMatcher(),
         new ContainsTMatcher(),
@@ -23,20 +23,7 @@ internal partial class TextFilterService
     public void Run()
     {
         var text = _textReader.Read();
-        text = Filter(text);
+        text = _wordFilter.Filter(text, _matchers);
         _outputWriter.Write(text);
     }
-
-    private string Filter(string text)
-    {
-        foreach (var wordMatcher in _wordMatchers)
-        {
-            text = WordMatchRegex().Replace(text, match =>
-                wordMatcher.Matches(match.Value) ? string.Empty : match.Value);
-        }
-        return text;
-    }
-
-    [GeneratedRegex(@"\w+")]
-    private static partial Regex WordMatchRegex();
 }
