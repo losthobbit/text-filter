@@ -1,4 +1,4 @@
-﻿namespace TextFilter.App.Application.Matchers;
+﻿namespace TextFilter.App.Application.WordMatchers;
 
 internal class MiddleVowelMatcher : IWordMatcher
 {

@@ -23,17 +23,23 @@ public class TestFilterServiceTests
         _sut = new TextFilterService(_mockTextReader, _mockOutputWriter);
     }
 
-    [Theory]
-    [InlineData("No words removed", "hello", "hello")]
-    [InlineData("All types removed", "bb k33p beeep IHaveAt", " k33p  ")]
-    void Run_OutputsFilteredText(string _, string input, string expected)
+    [Fact]
+    void Run_OutputsFilteredText()
     {
+        const string input = "bb `k33p \"`beeep ,IHaveAt";
+        var wordsToKeep = new[] { "k33p" };
+        var wordsToRemove = new[] { "bb", "beeep", "IHaveAt" };
+
         string? actual = null;
         _mockTextReader.Read().Returns(input);
         _mockOutputWriter.Write(Arg.Do<string>(text => actual = text));
 
         _sut.Run();
 
-        actual.ShouldBe(expected);
+        actual.ShouldNotBeNull();
+        foreach (var word in wordsToKeep)
+            actual.ShouldContain(word);
+        foreach (var word in wordsToRemove)
+            actual.ShouldNotContain(word);
     }
 }

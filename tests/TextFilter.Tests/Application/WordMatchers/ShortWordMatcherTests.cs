@@ -1,5 +1,5 @@
 using Shouldly;
-using TextFilter.App.Application.Matchers;
+using TextFilter.App.Application.WordMatchers;
 
 namespace TextFilter.Tests.Application.Filters;
 

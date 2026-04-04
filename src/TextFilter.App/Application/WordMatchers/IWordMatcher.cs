@@ -1,4 +1,4 @@
-﻿namespace TextFilter.App.Application.Matchers;
+﻿namespace TextFilter.App.Application.WordMatchers;
 
 public interface IWordMatcher
 {

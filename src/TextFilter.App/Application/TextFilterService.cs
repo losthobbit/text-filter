@@ -1,10 +1,10 @@
 ﻿using System.Text.RegularExpressions;
 using TextFilter.App.Application.Interfaces;
-using TextFilter.App.Application.Matchers;
+using TextFilter.App.Application.WordMatchers;
 
 namespace TextFilter.App.Application;
 
-internal class TextFilterService
+internal partial class TextFilterService
 {
     private readonly IOutputWriter _outputWriter;
     private readonly ITextReader _textReader;
@@ -23,11 +23,20 @@ internal class TextFilterService
     public void Run()
     {
         var text = _textReader.Read();
-        foreach (var wordMatcher in _wordMatchers)
-        {
-            text = Regex.Replace(text, @"\w+", match =>
-                wordMatcher.Matches(match.Value) ? string.Empty : match.Value);
-        }
+        text = Filter(text);
         _outputWriter.Write(text);
     }
+
+    private string Filter(string text)
+    {
+        foreach (var wordMatcher in _wordMatchers)
+        {
+            text = WordMatchRegex().Replace(text, match =>
+                wordMatcher.Matches(match.Value) ? string.Empty : match.Value);
+        }
+        return text;
+    }
+
+    [GeneratedRegex(@"\w+")]
+    private static partial Regex WordMatchRegex();
 }

@@ -1,5 +1,5 @@
 ﻿using Shouldly;
-using TextFilter.App.Application.Matchers;
+using TextFilter.App.Application.WordMatchers;
 
 namespace TextFilter.Tests.Application.Filters;
 
@@ -27,7 +27,7 @@ public class MiddleVowelMatcherTests
     }
 
     [Theory]
-    [InlineData("odd length word with middle consonant", "try")]
+    [InlineData("odd length word with middle consonant", "aba")]
     [InlineData("even length word with neither middle letter a vowel", "rather")]
     [InlineData("single character consonant", "b")]
     [InlineData("empty string", "")]
