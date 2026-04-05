@@ -46,7 +46,6 @@ The output of each filter is the input to the next.
   handling is implemented.
 - The file is assumed to be UTF-8 encoded. `File.ReadAllText` is used 
   with default encoding (UTF-8 with BOM detection).
-- No guarantees are made about preserving line endings in the output.
 
 ## Word Splitting for FilterBase
 `Regex.Matches(\w+)` is used to identify words. Each matched word is 
