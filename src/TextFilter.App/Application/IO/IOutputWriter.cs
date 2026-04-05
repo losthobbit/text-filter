@@ -1,4 +1,4 @@
-﻿namespace TextFilter.App.Application.Interfaces;
+﻿namespace TextFilter.App.Application.IO;
 
 public interface IOutputWriter
 {

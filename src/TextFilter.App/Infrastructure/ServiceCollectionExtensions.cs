@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using TextFilter.App.Application.Interfaces;
+using TextFilter.App.Application.IO;
 
 namespace TextFilter.App.Infrastructure;
 

@@ -1,4 +1,4 @@
-using TextFilter.App.Application.Interfaces;
+using TextFilter.App.Application.IO;
 using TextFilter.App.Application.WordMatchers;
 
 namespace TextFilter.App.Application;

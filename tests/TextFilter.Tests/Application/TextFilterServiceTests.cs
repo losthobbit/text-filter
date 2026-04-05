@@ -1,6 +1,6 @@
 using NSubstitute;
 using TextFilter.App.Application;
-using TextFilter.App.Application.Interfaces;
+using TextFilter.App.Application.IO;
 
 namespace TextFilter.Tests.Application;
 
